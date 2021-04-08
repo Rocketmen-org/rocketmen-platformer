@@ -1,0 +1,12 @@
+Created April 7, 2021
+© 2021 Zachary Broome
+
+DESCRIPTION:
+Control the Green Rocket Guy as he explores a peaceful site in the mountains
+use the arrow keys to move and the spacebar to jump!
+
+All sprites and backgrounds are made by me.
+
+BUILD:
+standard make build (default), make run and make clean commands apply. 
+executable is game.out
