@@ -15,12 +15,17 @@
 
 #include "GameObject.h"
 #include "SpriteManager.h"
+#include "ParticleEmitter.h"
+#include "P_Star.h"
+#include "Em_Star.h"
+#include "TileHandler.h"
+#include "Rocket.h"
 
 class Player : public GameObject {
 
    public:
       
-      Player(SDL_Renderer* ren);
+      Player(SDL_Renderer* ren, SDL_Rect* cam, TileHandler* th);
  
       bool init();
       void update();
@@ -31,7 +36,7 @@ class Player : public GameObject {
 
       bool jump();
 
-      void setCamera(SDL_Rect* cam);
+      bool shoot(int direction);
       
    private:
       SDL_Rect dest_R;
@@ -51,7 +56,12 @@ class Player : public GameObject {
 
       SpriteManager spriteMan;
       SDL_Rect* camera;
-      SDL_Rect cam;
+
+      Em_Star partEm;
+
+      TileHandler* tileHand;
+
+      Rocket rocket;
 };
 
 #endif

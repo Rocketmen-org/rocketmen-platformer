@@ -13,6 +13,7 @@
 class GameObject {
    public:
       GameObject(SDL_Renderer* ren);
+      virtual ~GameObject();
       virtual bool init() = 0;
       virtual void update() = 0;
       virtual void render() = 0;

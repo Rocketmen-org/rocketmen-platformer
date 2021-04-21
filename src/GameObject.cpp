@@ -7,6 +7,8 @@ GameObject::GameObject(SDL_Renderer* ren){
    obj_renderer_p = ren;
 }
 
+GameObject::~GameObject(){this->quit();}
+
 void GameObject::quit(){
    if (!(obj_texture_p.size() != 0)){
       for(SDL_Texture* tex: obj_texture_p){

@@ -46,6 +46,8 @@ class TileHandler : public GameObject {
       void update();
       void render();
 
+      bool checkTileCollision(SDL_Rect obj);
+
       SDL_Rect* getCamera();
       
    private:

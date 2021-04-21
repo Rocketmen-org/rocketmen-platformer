@@ -88,6 +88,21 @@ SDL_Rect* TileHandler::getCamera(){
    return &camera;
 }
 
+bool TileHandler::checkTileCollision(SDL_Rect obj_R){
+   for(int i = 0; i < LEVEL_W * LEVEL_H; i++){
+      if (tiles[i].type >= 1 && tiles[i].type < 4){ //if it's a wall
+         SDL_Rect tile_R = {tiles[i].x * BACKGROUND_SCALAR,
+   	                    tiles[i].y * BACKGROUND_SCALAR,
+	                    TILE_W * BACKGROUND_SCALAR, 
+	                    TILE_H * BACKGROUND_SCALAR};
+         if(collide(tile_R, obj_R)){
+            return true;
+         }
+      }
+   }
+   return false;
+}
+
 bool TileHandler::collide( SDL_Rect a, SDL_Rect b ){
     //The sides of the rectangles
     int leftA, leftB;

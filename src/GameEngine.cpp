@@ -109,14 +109,14 @@ bool GameEngine::init(){
       return false;
    }
 
-   player = new Player(renderer_p);
+   player = new Player(renderer_p, tileHandler->getCamera(), tileHandler);
    if(!player->init()){
       quit(); 
 	   std::cout << "Error creating Player: " << SDL_GetError() << std::endl; 
       return false;
    }
 
-   player->setCamera(tileHandler->getCamera());
+   //player->setCamera(tileHandler->getCamera());
    background1->setCamera(tileHandler->getCamera());
    background2->setCamera(tileHandler->getCamera());
    background3->setCamera(tileHandler->getCamera());
@@ -170,6 +170,12 @@ void GameEngine::handleEvents(){
 	       if(player->jump()){
 	          Mix_PlayChannel( -1, jump_sfx, 0 );
 	       }
+	       break;
+	    case SDLK_d:
+	       player->shoot(1);
+	       break;
+	    case SDLK_a:
+	       player->shoot(-1);
 	       break;
 	 }
       }
